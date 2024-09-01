@@ -31,7 +31,7 @@ st.image("data_darbar_logo.jpeg", width=100)  # Adjust the width as needed
 
 
 # Directory containing your data files
-folder_path = r'C:\Users\iRaaFu\Desktop\easyDataProd'
+folder_path = r'DataDarbar-Warehouse/'
 
 # Get the list of files in the folder
 files = [f for f in os.listdir(folder_path) if f.endswith('.csv') or f.endswith('.xlsx')]
