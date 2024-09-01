@@ -70,12 +70,15 @@ else:
 
         # Create a function to download the merged dataset as an Excel file
         def download_link(data):
-            # Convert DataFrame to Excel
             import io
-            output = io.BytesIO()
-            with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
-                data.to_excel(writer, index=False, sheet_name='MergedData')
-            return output.getvalue()
+            try:
+                output = io.BytesIO()
+                with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+                    data.to_excel(writer, index=False, sheet_name='MergedData')
+                return output.getvalue()
+            except ImportError:
+                st.write("Error: `xlsxwriter` module is missing. Please add it to your requirements.")
+
 
         # Provide a download button for the merged dataset
         st.download_button(
